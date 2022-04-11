@@ -1,4 +1,4 @@
-import { CreateProdutoDto } from "./dto/create-produto.dto";
+import { Prisma } from "@prisma/client";
 import { FilterProdutoDto } from "./dto/filter-produto.dto";
 import { UpdateProdutoDto } from "./dto/update-produto.dto";
 import { ProdutoRepository } from "./produto.repository";
@@ -12,8 +12,8 @@ export class ProdutoService {
         this.repository = new ProdutoRepository()
     }
 
-    async create(createDto: CreateProdutoDto) {
-        return this.repository.create(createDto);
+    async create(createInput: Prisma.ProdutoCreateInput) {
+        return this.repository.create(createInput);
     }
 
     async read(filterDto: FilterProdutoDto) {
