@@ -9,12 +9,13 @@ export class ProdutoRepository {
     prisma = new PrismaClient();
 
     async create(createDto: CreateProdutoDto){
-        const { nome, descricao } = createDto;
+        const { nome, descricao, valor } = createDto;
 
         const produto = await this.prisma.produto.create({
             data: {
                 nome,
-                descricao
+                descricao,
+                valor
             }
         });
 
@@ -22,7 +23,7 @@ export class ProdutoRepository {
     }
 
     async read(filterDto: FilterProdutoDto) {
-        const { nome, descricao } = filterDto;
+        const { nome, descricao, valor } = filterDto;
         const produtos = await this.prisma.produto.findMany();
 
         return produtos;
@@ -39,14 +40,15 @@ export class ProdutoRepository {
     }
 
     async update(id: string, updateDto: UpdateProdutoDto) {
-        const { nome, descricao } = updateDto;
+        const { nome, descricao, valor } = updateDto;
         const produto = await this.prisma.produto.update({
             where: {
                 id
             },
             data: {
                 nome,
-                descricao
+                descricao,
+                valor
             }
         });
 

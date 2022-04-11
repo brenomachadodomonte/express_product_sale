@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import { runInThisContext } from "vm";
 import { ProdutoService } from "./produto.service";
 
 export class ProdutoController {
@@ -10,16 +9,16 @@ export class ProdutoController {
     }
 
     async create(request: Request, response: Response){
-        const { nome, descricao } = request.body;
+        const { nome, descricao, valor } = request.body;
         
-        const result = await this.service.create({ nome, descricao });
+        const result = await this.service.create({ nome, descricao, valor });
 
         response.json(result);
     }
 
     async read(request: Request, response: Response){
-        const { nome, descricao } = request.params;
-        const produtos = await this.service.read({ nome, descricao });
+        const { nome, descricao, valor } = request.params;
+        const produtos = await this.service.read({ nome, descricao, valor });
 
         response.json(produtos);
     }
@@ -33,9 +32,9 @@ export class ProdutoController {
 
     async update(request: Request, response: Response){
         const { id } = request.params;
-        const { nome, descricao } = request.body;
+        const { nome, descricao, valor } = request.body;
 
-        const produto = await this.service.update(id, { nome, descricao });
+        const produto = await this.service.update(id, { nome, descricao, valor });
         response.json(produto);
     }
 

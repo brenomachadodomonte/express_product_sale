@@ -12,6 +12,7 @@ model Produto {
 
   nome      String
   descricao String?
+  valor     Decimal @default(0.0)
 
   dataCriacao     DateTime @default(now())
   dataAtualizacao DateTime @updatedAt
