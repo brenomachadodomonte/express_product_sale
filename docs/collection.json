@@ -1,0 +1,345 @@
+{
+	"info": {
+		"_postman_id": "67bf873e-f103-40ac-a616-016f8eea2ae5",
+		"name": "API - Produtos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Produto",
+			"item": [
+				{
+					"name": "Criar Produto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Notebook Apple\",\n    \"descricao\": \"Macbook Pro 13 16gb 512gb\",\n    \"valor\": 15250.99\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/produto",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"produto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Produtos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/produto",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"produto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter Produto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/produto/7ccbba58-5448-48d4-acfc-2a1f7cbb8580",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"produto",
+								"7ccbba58-5448-48d4-acfc-2a1f7cbb8580"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Produto",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Notebook Samsung\",\n    \"descricao\": \"Notebook Samsung i5 8gb 512SSD\",\n    \"valor\": 4500.00\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/produto/7d66aa34-9b61-4421-b623-f23707277c24",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"produto",
+								"7d66aa34-9b61-4421-b623-f23707277c24"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Produto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/produto/a1ff1cdb-efb1-441f-ae74-a6147adf85e3",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"produto",
+								"a1ff1cdb-efb1-441f-ae74-a6147adf85e3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Estoque",
+			"item": [
+				{
+					"name": "Criar Estoque",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"produtoId\": \"3d386793-4d54-4367-a6ff-e7d712d70a68\",\n    \"quantidade\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/estoque",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"estoque"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Estoques",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/estoque",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"estoque"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter Estoque",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/estoque/f4a5a350-e7b7-4c54-ae30-c879e20a792b",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"estoque",
+								"f4a5a350-e7b7-4c54-ae30-c879e20a792b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Estoque",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"quantidade\": 15\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/estoque/f4a5a350-e7b7-4c54-ae30-c879e20a792b",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"estoque",
+								"f4a5a350-e7b7-4c54-ae30-c879e20a792b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Estoque",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/estoque/f4a5a350-e7b7-4c54-ae30-c879e20a792b",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"estoque",
+								"f4a5a350-e7b7-4c54-ae30-c879e20a792b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Venda",
+			"item": [
+				{
+					"name": "Realizar Venda",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"produtoId\": \"3d386793-4d54-4367-a6ff-e7d712d70a68\",\n    \"quantidade\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/venda",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"venda"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Vendas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/venda",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"venda"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Extrato",
+			"item": [
+				{
+					"name": "Listar Extratos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_extrato}}/extrato",
+							"host": [
+								"{{base_extrato}}"
+							],
+							"path": [
+								"extrato"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "base_extrato",
+			"value": "http://localhost:3001",
+			"type": "string"
+		}
+	]
+}
