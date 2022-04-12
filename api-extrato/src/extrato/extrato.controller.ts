@@ -13,7 +13,7 @@ export class ExtratoController {
         this.server = new RabbitmqServer('amqp://admin:admin@localhost:5672');
     }
 
-    async create(request: Request, response: Response) {
+    async listQueue() {
 
         await this.server.start();
         await this.server.consume('extrato', async (message) => {
@@ -25,11 +25,9 @@ export class ExtratoController {
                 quantidade: venda.quantidade,
                 dataVenda: venda.data
             });
-
-            console.log('EXTRATO CRIADO', extrato);
         });
-
-        response.send({message: 'Lendo fila RabbitMQ'});
+        
+        console.log('[ EXTRATO ] Listing queue from RabbitMQ');
     }
 
     async read(request: Request, response: Response) {
