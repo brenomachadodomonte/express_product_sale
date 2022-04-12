@@ -30,4 +30,8 @@ export class VendaService {
 
         return this.repository.create(createDto);
     }
+
+    async read() {
+        return this.repository.read();
+    }
 }

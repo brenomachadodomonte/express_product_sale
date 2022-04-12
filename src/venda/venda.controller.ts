@@ -22,4 +22,10 @@ export class VendaController {
         response.json(result);
     }
 
+    async read(request: Request, response: Response){
+        const vendas = await this.service.read();
+
+        response.json(vendas);
+    }
+
 }

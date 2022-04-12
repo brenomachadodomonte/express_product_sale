@@ -18,6 +18,13 @@ export class VendaRepository {
         return estoque;
     }
 
+
+    async read() {
+        const vendas = await this.prisma.venda.findMany();
+
+        return vendas;
+    }
+
     async countVendas(produtoId: string): Promise<number | null> {
         const aggregate = await this.prisma.venda.aggregate({
             where: {
