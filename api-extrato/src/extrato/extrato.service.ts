@@ -1,9 +1,17 @@
+import { CreateExtratoDto } from "./dto/create-extrato.dto";
+import { ExtratoRepository } from "./extrato.repository";
 
 
 export class ExtratoService {
 
-    async create() {
-        
+    private repository: ExtratoRepository;
+
+    constructor(){
+        this.repository = new ExtratoRepository();
+    }
+
+    async create(createDto: CreateExtratoDto) {
+        return this.repository.create(createDto);
     }
 
 }

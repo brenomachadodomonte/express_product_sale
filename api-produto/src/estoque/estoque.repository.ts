@@ -1,4 +1,4 @@
-import { Prisma, PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 import { FilterProdutoDto } from "../produto/dto/filter-produto.dto";
 import { CreateEstoqueDto } from "./dto/create-estoque.dto";
 import { UpdateEstoqueDto } from "./dto/update-estoque.dto";
