@@ -3,7 +3,7 @@ import { routes } from './extrato/extrato.routes'
 
 function main() {
     const app = express();
-    const port: number = 3000;
+    const port: number = 3001;
 
     app.use(express.json());
     app.use(routes);

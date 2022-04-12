@@ -1,5 +1,6 @@
 import { EstoqueRepository } from "../estoque/estoque.repository";
 import { ProdutoRepository } from "../produto/produto.repository";
+import RabbitmqServer from "../rabbitmq-server";
 import { CreateVendaDto } from "./dto/create-venda.dto";
 import { VendaRepository } from "./venda.repository";
 
@@ -28,7 +29,9 @@ export class VendaService {
             return new Error('Não há estoque suficiente para realizar a compra!');
         }
 
-        return this.repository.create(createDto);
+        const venda = await this.repository.create(createDto);
+
+        return venda;
     }
 
     async read() {

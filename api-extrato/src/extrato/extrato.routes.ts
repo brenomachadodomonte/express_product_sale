@@ -8,5 +8,4 @@ const controller: ExtratoController = new ExtratoController();
 
 routes.post(source, (req, res) => controller.create(req, res));
 
-
 export { routes };

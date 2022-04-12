@@ -23,7 +23,7 @@ services:
     environment:
       - CHOKIDAR_USEPOLLING=true
     ports:
-      - 3001:3000
+      - 3001:3001
     volumes:
       - ./api-extrato:/home/node/extrato
     depends_on: 
