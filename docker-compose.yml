@@ -3,35 +3,35 @@ version: "3"
 services:
 
   produto:
-    build: ./produto
+    build: ./api-produto
     entrypoint: ./.docker/entrypoint.sh
     container_name: hubees-express-produto
     environment:
       - CHOKIDAR_USEPOLLING=true
     ports:
-      - 3001:3000
+      - 3000:3000
     volumes:
-      - ./produto:/home/node/api-produto
+      - ./api-produto:/home/node/produto
     depends_on: 
       - rabbitmq
       - dbpostgres
 
   extrato:
-    build: ./extrato
+    build: ./api-extrato
     entrypoint: ./.docker/entrypoint.sh
     container_name: hubees-express-extrato
     environment:
       - CHOKIDAR_USEPOLLING=true
     ports:
-      - 3000:3000
+      - 3001:3000
     volumes:
-      - ./extrato:/home/node/extrato
+      - ./api-extrato:/home/node/extrato
     depends_on: 
       - rabbitmq
 
   rabbitmq:
     image: "rabbitmq:3.8-management-alpine"
-    container_name: nodejs-rabbitmq-rabbitmq
+    container_name: hubees-rabbitmq
     hostname: rabbitmq
     ports:
       - "15672:15672"
@@ -44,11 +44,9 @@ services:
 
   dbpostgres:
     image: postgres
-    volumes:
-      - /private/var/lib/postgresql:/var/lib/postgresql
+    container_name: hubees-postgres
     ports:
       - "5432:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: hubees
-      POSTGRES_DB: hubees
