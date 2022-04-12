@@ -60,4 +60,17 @@ export class EstoqueRepository {
         });
     } 
 
+    async countEstoque(produtoId: string): Promise<number | null> {
+        const aggregate = await this.prisma.estoque.aggregate({
+            where: {
+                produtoId: produtoId
+            },
+            _sum: {
+                quantidade: true
+            }
+        });
+
+        return aggregate._sum.quantidade;
+    }
+
 }

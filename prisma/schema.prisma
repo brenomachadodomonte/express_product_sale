@@ -38,7 +38,7 @@ model Venda {
 
   produto    Produto  @relation(fields: [produtoId], references: [id])
   quantidade Int
-  data       DateTime
+  data       DateTime @default(now())
 
   produtoId String
   @@map("venda")
