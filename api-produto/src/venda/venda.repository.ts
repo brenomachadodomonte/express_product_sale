@@ -12,6 +12,9 @@ export class VendaRepository {
             data: {
                 produtoId,
                 quantidade
+            },
+            include: {
+                produto: true
             }
         });
 

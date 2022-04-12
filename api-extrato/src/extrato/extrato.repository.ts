@@ -13,4 +13,9 @@ export class ExtratoRepository {
         return extrato;
     }
 
+    async read() {
+        const extratos = await this.prisma.extrato.findMany();
+        return extratos;
+    }
+
 }

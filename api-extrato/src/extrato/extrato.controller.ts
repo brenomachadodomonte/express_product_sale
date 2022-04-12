@@ -15,28 +15,27 @@ export class ExtratoController {
 
     async create(request: Request, response: Response) {
 
-        // const { 
-        //     nome,
-        //     descricao,
-        //     valor,
-        //     quantidade,
-        //     dataVenda
-        // };
-
-        // const extrato = await this.service.create({
-        //     nome,
-        //     descricao,
-        //     valor,
-        //     quantidade,
-        //     dataVenda
-        // });
         await this.server.start();
-        await this.server.consume('extrato', (message) => {
-            console.log(message?.content.toString());
-            console.log('foi!!!');
+        await this.server.consume('extrato', async (message) => {
+            const venda = JSON.parse(message?.content.toString());
+            const extrato = await this.service.create({
+                nome: venda.produto.nome,
+                descricao: venda.produto.descricao,
+                valor: venda.produto.valor,
+                quantidade: venda.quantidade,
+                dataVenda: venda.data
+            });
+
+            console.log('EXTRATO CRIADO', extrato);
         });
 
-        response.send({message: 'é pra ter ido'});
+        response.send({message: 'Lendo fila RabbitMQ'});
+    }
+
+    async read(request: Request, response: Response) {
+        const extratos = await this.service.read();
+
+        response.send(extratos);
     }
 
 }

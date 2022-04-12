@@ -14,4 +14,7 @@ export class ExtratoService {
         return this.repository.create(createDto);
     }
 
+    async read() {
+        return this.repository.read();
+    }
 }
